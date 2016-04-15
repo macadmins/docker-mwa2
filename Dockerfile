@@ -2,7 +2,7 @@ FROM alpine
 
 ENV APP_DIR /app
 
-COPY .docker/requirements.txt /tmp/
+COPY docker/requirements.txt /tmp/
 
 RUN apk add --update python py-pip libpq
 RUN apk --update add --virtual build-dependencies python-dev build-base wget git postgresql postgresql-contrib postgresql-dev \
@@ -12,10 +12,10 @@ RUN apk --update add --virtual build-dependencies python-dev build-base wget git
   && rm -rf /var/cache/apk/*
 
 
-COPY .docker/run.sh /usr/sbin/
-COPY .docker/settings.py /app/munkiwebadmin/
-COPY .docker/django_wsgiserver /app/django_wsgiserver/
-COPY .docker/admin_tools/ /app/admin_tools/
+COPY docker/run.sh /usr/sbin/
+COPY docker/settings.py /app/munkiwebadmin/
+COPY docker/django_wsgiserver /app/django_wsgiserver/
+COPY docker/admin_tools/ /app/admin_tools/
 
 WORKDIR /app
 #
