@@ -8,6 +8,10 @@ RUN apk add --update python py-pip libpq
 RUN apk --update add --virtual build-dependencies python-dev build-base wget git postgresql postgresql-contrib postgresql-dev \
   && pip install -r /tmp/requirements.txt \
   && git clone https://github.com/munki/mwa2.git /app \
+  && git clone https://github.com/munki/munki.git \
+  && mkdir -p /usr/local/munki \
+  && mv /munki/code/client/makecatalogs /usr/local/munki/makecatalogs \
+  && rm -rf /munki \
   && apk del build-dependencies \
   && rm -rf /var/cache/apk/*
 
