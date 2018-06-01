@@ -10,7 +10,7 @@ See the [sal](https://github.com/salopensource/sal) and [sal-ldap](https://githu
 docker run -d --name="munkiwebadmin" \
   -p 80:8000 \
   -v /path/to/munki_repo:/munki_repo \
-  -e ADMIN_PASS=password
+  -e ADMIN_PASS=password \
   macadmins/mwa2:latest
 ```
 
